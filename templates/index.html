@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+
+{% block title %}SmileCraft Dental Clinic | Ultra-Premium Dental Care{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content reveal">
+            <div class="hero-badge">
+                <i data-lucide="award"></i>
+                <span>Premier Dental Excellence</span>
+            </div>
+            <h1 class="hero-title">Precision. Artistry.<br><span>Perfection.</span></h1>
+            <p class="hero-subtitle">
+                Experience world-class dental care in a serene, luxurious environment. We combine state-of-the-art technology with clinical mastery to craft your perfect smile.
+            </p>
+            <div class="hero-buttons">
+                <a href="#appointment" class="btn btn-primary btn-rounded">Reserve a Consultation</a>
+            </div>
+        </div>
+        
+        <div class="hero-visual reveal delay-2">
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Pristine Dental Clinic Interior">
+            </div>
+            
+            <div class="glass-card">
+                <div class="card-icon-container">
+                    <i data-lucide="star"></i>
+                </div>
+                <div class="glass-card-text">
+                    <h4>Top Rated Clinic</h4>
+                    <p>4.9/5 Patient Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST & PARTNERS BANNER (Conversion Booster) -->
+<section class="trust-banner reveal">
+    <div class="container">
+        <div class="trust-flex">
+            <div class="trust-item"><i data-lucide="shield-check"></i> ISO 9001 Certified</div>
+            <div class="trust-item"><i data-lucide="smile"></i> Invisalign Provider</div>
+            <div class="trust-item"><i data-lucide="activity"></i> Nobel Biocare Implants</div>
+            <div class="trust-item"><i data-lucide="heart"></i> 10,000+ Happy Smiles</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="services">
+    <div class="container">
+        <span class="section-subtitle reveal">Our Expertise</span>
+        <h2 class="section-title reveal delay-1">World-Class Treatments</h2>
+        
+        <div class="services-grid">
+            <div class="service-card reveal delay-1">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teeth Cleaning">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3 class="service-title">Teeth Cleaning (Scaling)</h3>
+                    <p class="service-desc">Routine check-ups, ultrasonic scaling, and polishing to maintain healthy gums and a plaque-free smile.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-2">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dental Implants">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3 class="service-title">Dental Implants</h3>
+                    <p class="service-desc">Permanent, natural-looking tooth replacements to restore your flawless chewing capacity and smile.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-3">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Root Canal Treatment">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <h3 class="service-title">Root Canal Treatment</h3>
+                    <p class="service-desc">Virtually painless procedures to save your natural tooth structure and eliminate infection.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-1">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teeth Whitening">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="sun"></i>
+                    </div>
+                    <h3 class="service-title">Teeth Whitening</h3>
+                    <p class="service-desc">Professional aesthetic treatments to safely brighten your smile and remove tough stains.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-2">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crowns & Bridges">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <h3 class="service-title">Crowns & Bridges</h3>
+                    <p class="service-desc">High-quality custom restorations and dentures to protect damaged teeth and bridge missing gaps.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-3">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Surgical Extractions">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-box">
+                        <i data-lucide="scissors"></i>
+                    </div>
+                    <h3 class="service-title">Surgical Extractions</h3>
+                    <p class="service-desc">Safe and comfortable oral surgery for complex tooth removals, including wisdom teeth.</p>
+                    <a href="#appointment" class="service-link">Consult Now <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT CLINIC SECTION -->
+<section id="about" class="about">
+    <div class="container about-grid">
+        <div class="about-visual reveal">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clinical Environment" class="about-img-main">
+            <div class="experience-badge">
+                <span class="exp-years">10+</span>
+                <span class="exp-text">Years of Mastery</span>
+            </div>
+        </div>
+        
+        <div class="about-content reveal delay-1">
+            <span class="section-subtitle" style="text-align: left;">The SmileCraft Difference</span>
+            <h2>Setting the Gold Standard in Pune</h2>
+            <p class="about-description">
+                At SmileCraft, we redefine the patient journey. Our mission is to provide uncompromising clinical quality in a serene, luxurious environment where precision meets absolute comfort.
+            </p>
+            
+            <div class="about-points">
+                <div class="about-point-item">
+                    <i data-lucide="scan-line"></i>
+                    <div>
+                        <h4>Advanced Diagnostics</h4>
+                        <p>State-of-the-art 3D imaging.</p>
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <i data-lucide="shield-check"></i>
+                    <div>
+                        <h4>Strict Sterilization</h4>
+                        <p>Class B autoclave protocols.</p>
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <i data-lucide="coffee"></i>
+                    <div>
+                        <h4>Anxiety-Free</h4>
+                        <p>Comfort-focused, painless care.</p>
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <i data-lucide="badge-percent"></i>
+                    <div>
+                        <h4>Transparent Plans</h4>
+                        <p>Clear pricing, zero hidden fees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DOCTOR SECTION -->
+<section id="team" class="doctor">
+    <div class="container doctor-grid">
+        <div class="doctor-content reveal">
+            <span class="section-subtitle" style="text-align: left;">Lead Specialist</span>
+            <h2>Dr. Aditya Kulkarni</h2>
+            <span class="doctor-spec">Chief Dental Surgeon & Implantologist</span>
+            <p class="about-description">
+                Renowned for his meticulous precision and gentle approach, Dr. Aditya Kulkarni is dedicated to elevating dental standards in Pune. He specializes in advanced full-mouth rehabilitations and high-end cosmetic smile designing.
+            </p>
+            
+            <div class="doctor-detail-item">
+                <strong><i data-lucide="award"></i> Qualifications:</strong> BDS, MDS (Prosthodontics)
+            </div>
+            <div class="doctor-detail-item">
+                <strong><i data-lucide="briefcase"></i> Experience:</strong> Over 10 Years Clinical Excellence
+            </div>
+            <div class="doctor-detail-item">
+                <strong><i data-lucide="gem"></i> Focus:</strong> Premium Aesthetics & Implants
+            </div>
+        </div>
+        
+        <div class="doctor-visual reveal delay-2">
+            <div class="doctor-tag">Award Winning</div>
+            <div class="doctor-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Aditya Kulkarni">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION (ELEGANT CENTRALIZED LAYOUT) -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <span class="section-subtitle reveal">Patient Stories</span>
+        <h2 class="section-title reveal delay-1">Voices of Confidence</h2>
+        
+        <div class="testimonial-display reveal delay-2">
+            <i data-lucide="quote" class="testimonial-quote-icon"></i>
+            
+            <div class="testimonial-items-container">
+                <!-- Items controlled by JS -->
+                <div class="testimonial-item active" data-index="0">
+                    <p class="t-review">"I was terrified of root canals, but Dr. Aditya made the entire process completely painless. The clinic is absolutely pristine. Highly recommend SmileCraft!"</p>
+                    <div class="t-author">Priya Sharma</div>
+                    <span class="t-tag">Root Canal Therapy</span>
+                </div>
+                
+                <div class="testimonial-item" data-index="1">
+                    <p class="t-review">"Premium experience from start to finish. The technology they use is top-notch and the recovery was very smooth. Best aesthetic clinic in Baner."</p>
+                    <div class="t-author">Rahul Patil</div>
+                    <span class="t-tag">Dental Implants</span>
+                </div>
+                
+                <div class="testimonial-item" data-index="2">
+                    <p class="t-review">"Dr. Aditya completely transformed my smile with veneers. His attention to detail is incredible. I've gained so much confidence. Thank you!"</p>
+                    <div class="t-author">Sneha Joshi</div>
+                    <span class="t-tag">Smile Designing</span>
+                </div>
+            </div>
+            
+            <div class="t-controls">
+                <button class="t-btn" id="prevTBtn" aria-label="Previous"><i data-lucide="arrow-left"></i></button>
+                <button class="t-btn" id="nextTBtn" aria-label="Next"><i data-lucide="arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APPOINTMENT SECTION -->
+<section id="appointment" class="appointment">
+    <div class="container appointment-grid">
+        
+        <div class="appointment-info reveal">
+            <span class="section-subtitle" style="text-align: left;">Private Consultation</span>
+            <h2>Secure Your Slot</h2>
+            <p class="appointment-desc">
+                Take the first step towards a flawless smile. Fill out the form, and our concierge team will confirm your exclusive appointment shortly.
+            </p>
+            
+            <div style="margin-top: 2rem;">
+                <div class="about-point-item" style="margin-bottom: 1.5rem;">
+                    <i data-lucide="calendar-check"></i>
+                    <div>
+                        <h4 style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 700;">Priority Scheduling</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Zero waiting time upon arrival.</p>
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <i data-lucide="shield-check"></i>
+                    <div>
+                        <h4 style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 700;">Discreet & Safe</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Absolute privacy and rigorous sterilization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="appointment-form-wrapper reveal delay-1">
+            <h3>Request Appointment</h3>
+            <form id="bookingForm" class="booking-form">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="treatment">Treatment Interest</label>
+                    <select id="treatment" name="treatment" class="form-control" required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option value="Teeth Cleaning (Scaling)">Teeth Cleaning (Scaling)</option>
+                        <option value="Dental Implants">Dental Implants</option>
+                        <option value="Root Canal Treatment">Root Canal Treatment</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Crowns & Bridges">Crowns & Bridges</option>
+                        <option value="Surgical Extractions">Surgical Extractions</option>
+                        <option value="General Consultation">General Consultation</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" name="time" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Notes</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Any specific requirements?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-submit btn-rounded">Confirm Booking</button>
+            </form>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact" style="padding: 10rem 0; background: var(--bg-white);">
+    <div class="container">
+        <span class="section-subtitle reveal">Reach Us</span>
+        <h2 class="section-title reveal delay-1">Visit The Clinic</h2>
+        
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <div class="contact-cards reveal delay-1" style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="contact-card-item" style="display: flex; gap: 1.5rem;">
+                    <div class="contact-item-icon" style="color: var(--color-secondary);"><i data-lucide="map-pin" style="width:32px; height:32px;"></i></div>
+                    <div class="contact-item-text">
+                        <h4 style="font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem;">Location</h4>
+                        <p style="color: var(--text-muted); line-height: 1.6;">SmileCraft Clinic,<br>2nd Floor, Phoenix Plaza,<br>Baner Road, Pune 411045</p>
+                    </div>
+                </div>
+                <div class="contact-card-item" style="display: flex; gap: 1.5rem;">
+                    <div class="contact-item-icon" style="color: var(--color-secondary);"><i data-lucide="phone" style="width:32px; height:32px;"></i></div>
+                    <div class="contact-item-text">
+                        <h4 style="font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem;">Direct Line</h4>
+                        <a href="tel:+919823044556" style="color: var(--text-muted);">+91 98230 44556</a>
+                    </div>
+                </div>
+                <div class="contact-card-item" style="display: flex; gap: 1.5rem;">
+                    <div class="contact-item-icon" style="color: var(--color-secondary);"><i data-lucide="clock" style="width:32px; height:32px;"></i></div>
+                    <div class="contact-item-text">
+                        <h4 style="font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem;">Hours</h4>
+                        <p style="color: var(--text-muted); line-height: 1.6;">Mon - Sat: 9:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-wrapper reveal delay-2" style="border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-premium);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30263.155554326084!2d73.7663248888258!3d18.55627236528734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bec704e67e33%3A0x6bba3bc30f69a531!2sBaner%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="success-modal">
+        <div class="success-icon-box">
+            <i data-lucide="check" style="width: 40px; height: 40px;"></i>
+        </div>
+        <h3>Request Confirmed</h3>
+        <p id="modalMessage">Your consultation request has been securely submitted. Our concierge team will reach out shortly.</p>
+        <button class="btn btn-primary btn-rounded" id="closeModalBtn" style="width: 100%;">Return to Site</button>
+    </div>
+</div>
+
+{% endblock %}

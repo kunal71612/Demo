@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmileCraft Dental Clinic Pune - Luxury dental care by Dr. Aditya Kulkarni in Baner. Precision treatments, Root Canal, Implants, Whitening & Aligners with maximum comfort.">
+    <meta name="keywords" content="Dental Clinic Pune, Dentist in Baner, SmileCraft, Dr Aditya Kulkarni, Root Canal Pune, Teeth Implants Pune, Smile Designing, Best Dentist Pune">
+    <meta name="author" content="SmileCraft Dental Clinic">
+    
+    <!-- Title Tag -->
+    <title>{% block title %}SmileCraft Dental Clinic | Ultra-Premium Dental Care{% endblock %}</title>
+
+    <!-- Google Fonts: Playfair Display (Vogue-Style Serif) & Manrope (Crisp Luxury Geometric) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Loading Animation -->
+    <div id="loader" class="loader-container">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Top Info Bar (Premium aesthetic detail) -->
+    <div class="top-info-bar">
+        <div class="container info-bar-flex">
+            <div class="info-item">
+                <i data-lucide="map-pin" class="info-icon"></i>
+                <span>Baner Road, Pune, Maharashtra</span>
+            </div>
+            <div class="info-item">
+                <i data-lucide="phone" class="info-icon"></i>
+                <a href="tel:+919823044556">+91 98230 44556</a>
+            </div>
+            <div class="info-item">
+                <i data-lucide="clock" class="info-icon"></i>
+                <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="main-header" id="mainHeader">
+        <nav class="navbar container">
+            <a href="{{ url_for('index') }}#home" class="logo">
+                <span class="logo-symbol">S</span>mile<span>Craft</span>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="{{ url_for('index') }}#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#team" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item mobile-only-cta">
+                    <a href="{{ url_for('index') }}#appointment" class="btn btn-primary btn-rounded">Book Appointment</a>
+                </li>
+            </ul>
+
+            <!-- Header Booking CTA (Desktop) -->
+            <div class="header-cta">
+                <a href="{{ url_for('index') }}#appointment" class="btn btn-outline btn-rounded btn-header-book">Book Appointment</a>
+                
+                <!-- Hamburger Icon for Mobile Menu Toggle -->
+                <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main dynamic body blocks -->
+    <main class="page-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Floating Action Elements -->
+    <a href="https://wa.me/919823044556?text=Hi%20SmileCraft!%20I'd%20like%20to%20inquire%20about%20booking%20a%20dental%20appointment." 
+       target="_blank" 
+       class="whatsapp-float" 
+       aria-label="Contact us on WhatsApp">
+        <i data-lucide="message-square" class="wa-icon"></i>
+        <span class="wa-tooltip">Chat with us</span>
+    </a>
+
+    <!-- Back to Top Trigger -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll Back to Top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Footer Structure -->
+    <footer class="footer">
+        <div class="footer-upper">
+            <div class="container footer-grid">
+                
+                <!-- Column 1: Info and Brand -->
+                <div class="footer-col col-brand">
+                    <a href="{{ url_for('index') }}#home" class="footer-logo">
+                        <span class="logo-symbol">S</span>mile<span>Craft</span>
+                    </a>
+                    <p class="footer-desc">
+                        SmileCraft Dental Clinic offers luxury state-of-the-art dental care led by Dr. Aditya Kulkarni. Experience pristine precision and clinical perfection in Pune.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Linkedin"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('index') }}#home">Home</a></li>
+                        <li><a href="{{ url_for('index') }}#about">About Clinic</a></li>
+                        <li><a href="{{ url_for('index') }}#team">Our Specialist</a></li>
+                        <li><a href="{{ url_for('index') }}#testimonials">Patient Reviews</a></li>
+                        <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Dental Services -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('index') }}#services">Teeth Cleaning</a></li>
+                        <li><a href="{{ url_for('index') }}#services">Dental Implants</a></li>
+                        <li><a href="{{ url_for('index') }}#services">Root Canal Treatment</a></li>
+                        <li><a href="{{ url_for('index') }}#services">Teeth Whitening</a></li>
+                        <li><a href="{{ url_for('index') }}#services">Crowns & Bridges</a></li>
+                        <li><a href="{{ url_for('index') }}#services">Surgical Extractions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Address Info -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Contact Details</h3>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <span>2nd Floor, Phoenix Plaza, Baner Road, Pune, MH 411045</span>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <a href="tel:+919823044556">+91 98230 44556</a>
+                        </li>
+                        <li>
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@smilecraftdental.in">contact@smilecraftdental.in</a>
+                        </li>
+                        <li>
+                            <i data-lucide="calendar"></i>
+                            <span>Mon - Sat: 9 AM - 8 PM<br>Sunday: Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="footer-lower">
+            <div class="container footer-lower-flex">
+                <p class="copyright">&copy; 2026 SmileCraft Dental Clinic. All Rights Reserved. Designed for Pristine Patient Care.</p>
+                <div class="footer-terms">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide SVG Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Include Custom Main JavaScript application -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

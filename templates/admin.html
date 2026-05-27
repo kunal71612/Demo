@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SmileCraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Admin Navigation -->
+    <header class="main-header admin-navbar">
+        <div class="container navbar" style="height: 70px;">
+            <div class="logo">
+                <span class="logo-symbol">S</span>mile<span>Craft</span>
+            </div>
+            
+            <div class="admin-welcome">
+                <i data-lucide="shield-check" style="width: 18px; height: 18px;"></i> Administrator Panel
+            </div>
+            
+            <a href="{{ url_for('admin_logout') }}" class="admin-logout-btn">
+                Log Out <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            
+            <div class="admin-header-flex">
+                <h1 class="admin-panel-title">Appointments Overview</h1>
+                <span class="admin-date-stamp">Today: <span id="currentDate"></span></span>
+            </div>
+
+            <!-- Dashboard Analytics Widgets -->
+            <div class="admin-stats-grid">
+                
+                <div class="stat-widget">
+                    <div class="stat-details">
+                        <h4>Total Bookings</h4>
+                        <span class="stat-number">{{ stats.total }}</span>
+                    </div>
+                    <div class="widget-icon-container total-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                </div>
+
+                <div class="stat-widget">
+                    <div class="stat-details">
+                        <h4>Pending Requests</h4>
+                        <span class="stat-number">{{ stats.pending }}</span>
+                    </div>
+                    <div class="widget-icon-container pending-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                </div>
+
+                <div class="stat-widget">
+                    <div class="stat-details">
+                        <h4>Completed Visits</h4>
+                        <span class="stat-number">{{ stats.completed }}</span>
+                    </div>
+                    <div class="widget-icon-container complete-icon">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Form -->
+            <div class="admin-controls-card">
+                <form action="{{ url_for('admin_dashboard') }}" method="GET" class="admin-filter-form">
+                    <div class="form-group">
+                        <label for="search">Search Patients</label>
+                        <input type="text" id="search" name="q" class="form-control" value="{{ search_query }}" placeholder="Search by name, email, or phone...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter_date">Filter by Date</label>
+                        <input type="date" id="filter_date" name="date" class="form-control" value="{{ date_filter }}">
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <div class="filter-btn-row">
+                            <button type="submit" class="btn btn-primary btn-filter-action">Apply Filter</button>
+                            {% if search_query or date_filter %}
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-reset btn-filter-action" style="text-align: center; text-decoration: none;">Reset</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Appointments Table List -->
+            <div class="table-responsive">
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Patient Details</th>
+                            <th>Treatment Type</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if appointments %}
+                            {% for appt in appointments %}
+                            <tr>
+                                <td>
+                                    <div class="patient-cell">
+                                        <span class="p-name">{{ appt.name }}</span>
+                                        <span class="p-contact-sub"><i data-lucide="phone" style="width:10px; height:10px;"></i> {{ appt.phone }}</span>
+                                        <span class="p-contact-sub"><i data-lucide="mail" style="width:10px; height:10px;"></i> {{ appt.email }}</span>
+                                    </div>
+                                    {% if appt.message %}
+                                    <div style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--color-primary); background: #f1f5f9; padding: 0.4rem; border-radius: 6px;">
+                                        <strong>Note:</strong> {{ appt.message }}
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <strong>{{ appt.treatment }}</strong>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                        <i data-lucide="calendar" style="width: 14px; height: 14px; color: var(--color-accent);"></i>
+                                        <span>{{ appt.preferred_date }}</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <i data-lucide="clock" style="width: 14px; height: 14px; color: var(--color-accent);"></i>
+                                        <span>{{ appt.preferred_time }}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    {% if appt.status == 'Pending' %}
+                                        <span class="badge-pill badge-pending"><i data-lucide="clock"></i> Pending</span>
+                                    {% else %}
+                                        <span class="badge-pill badge-completed"><i data-lucide="check-circle-2"></i> Completed</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="action-buttons-flex">
+                                        {% if appt.status == 'Pending' %}
+                                        <form action="{{ url_for('mark_completed', appointment_id=appt.id) }}" method="POST" style="display: inline;">
+                                            <button type="submit" class="btn-action-sm btn-complete-sm" title="Mark as Completed">
+                                                <i data-lucide="check"></i> Done
+                                            </button>
+                                        </form>
+                                        {% endif %}
+                                        
+                                        <form action="{{ url_for('delete_appointment', appointment_id=appt.id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to permanently delete this appointment request?');">
+                                            <button type="submit" class="btn-action-sm btn-delete-sm" title="Delete Entry">
+                                                <i data-lucide="trash-2"></i> Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5">
+                                    <div class="empty-state">
+                                        <i data-lucide="folder-search"></i>
+                                        <h3>No Appointments Found</h3>
+                                        <p>There are no bookings matching your current filter criteria.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        
+        // Dynamically set today's date in header
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+</html>
