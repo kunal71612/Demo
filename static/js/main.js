@@ -161,19 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 const formData = new FormData(bookingForm);
-                const response = await fetch('/book', {
+                const response = await fetch('https://formspree.io/f/xzdqjzdp', {
                     method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
                     body: formData
                 });
                 
                 const result = await response.json();
                 
-                if (response.ok && result.success) {
-                    modalMessage.innerHTML = result.message;
+                if (response.ok) {
+                    modalMessage.innerHTML = 'Your consultation request has been securely submitted. Our concierge team will reach out shortly.';
                     modalOverlay.classList.add('active');
                     bookingForm.reset();
                 } else {
-                    alert(result.message || 'An error occurred during booking. Please try again.');
+                    alert('An error occurred during booking. Please try again.');
                 }
                 
             } catch (error) {
