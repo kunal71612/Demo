@@ -591,7 +591,7 @@ h1, h2, h3, h4 {
 .service-icon-box {
     width: 64px;
     height: 64px;
-    background-color: rgba(2, 8, 23, 0.03);
+    background-color: rgba(14, 165, 233, 0.08);
     border-radius: 18px;
     display: flex;
     align-items: center;
@@ -603,16 +603,17 @@ h1, h2, h3, h4 {
 .service-icon-box i {
     width: 30px;
     height: 30px;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     transition: var(--transition-premium);
 }
 
 .service-card:hover .service-icon-box {
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
 }
 
 .service-card:hover .service-icon-box i {
-    color: var(--color-accent-gold);
+    color: #ffffff;
 }
 
 .service-title {
