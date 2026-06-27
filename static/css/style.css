@@ -747,29 +747,29 @@ h1, h2, h3, h4 {
     margin-top: 0.25rem;
 }
 
-/* Centralized Elegance Testimonials */
-.testimonials {
+/* Centralized Elegance Feedback */
+.feedback {
     padding: 10rem 0;
     background-color: var(--color-primary);
     color: var(--bg-white);
     text-align: center;
 }
 
-.testimonials .section-title {
+.feedback .section-title {
     color: var(--bg-white);
 }
 
-.testimonials .section-subtitle {
+.feedback .section-subtitle {
     color: var(--color-accent-gold);
 }
 
-.testimonial-display {
+.feedback-display {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
 }
 
-.testimonial-quote-icon {
+.feedback-quote-icon {
     position: absolute;
     top: -20px;
     left: 50%;
@@ -780,7 +780,7 @@ h1, h2, h3, h4 {
     z-index: 0;
 }
 
-.testimonial-items-container {
+.feedback-items-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -788,7 +788,7 @@ h1, h2, h3, h4 {
     z-index: 1;
 }
 
-.testimonial-item {
+.feedback-item {
     grid-area: 1 / 1;
     opacity: 0;
     visibility: hidden;
@@ -797,18 +797,26 @@ h1, h2, h3, h4 {
     pointer-events: none;
 }
 
-.testimonial-item.active {
+.feedback-item.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
 }
 
+.t-stars {
+    font-size: 1.6rem;
+    color: #f5c518;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(245, 197, 24, 0.3);
+}
+
 .t-review {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 2.5rem;
     color: var(--bg-white);
 }

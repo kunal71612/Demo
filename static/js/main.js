@@ -1,6 +1,6 @@
 /**
  * SmileCraft Dental Clinic - Ultra-Premium Client-Side Engine
- * Handles interactive animations, cinematic scroll reveals, central testimonials, and AJAX booking.
+ * Handles interactive animations, cinematic scroll reveals, central feedback, and AJAX booking.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -90,38 +90,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Elegant Crossfade Testimonials Engine
-    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    // 6. Elegant Crossfade Feedback Engine
+    const feedbackItems = document.querySelectorAll('.feedback-item');
     const prevTBtn = document.getElementById('prevTBtn');
     const nextTBtn = document.getElementById('nextTBtn');
     
-    if (testimonialItems.length > 0 && prevTBtn && nextTBtn) {
+    if (feedbackItems.length > 0 && prevTBtn && nextTBtn) {
         let currentIndex = 0;
         
-        function showTestimonial(index) {
+        function showFeedback(index) {
             // Remove active class from all
-            testimonialItems.forEach(item => {
+            feedbackItems.forEach(item => {
                 item.classList.remove('active');
             });
             
             // Add active class to current
-            testimonialItems[index].classList.add('active');
+            feedbackItems[index].classList.add('active');
         }
         
         nextTBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % testimonialItems.length;
-            showTestimonial(currentIndex);
+            currentIndex = (currentIndex + 1) % feedbackItems.length;
+            showFeedback(currentIndex);
         });
         
         prevTBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
-            showTestimonial(currentIndex);
+            currentIndex = (currentIndex - 1 + feedbackItems.length) % feedbackItems.length;
+            showFeedback(currentIndex);
         });
         
-        // Auto-play the testimonials every 8 seconds for dynamic feel
+        // Auto-play the feedback every 8 seconds for dynamic feel
         setInterval(() => {
-            currentIndex = (currentIndex + 1) % testimonialItems.length;
-            showTestimonial(currentIndex);
+            currentIndex = (currentIndex + 1) % feedbackItems.length;
+            showFeedback(currentIndex);
         }, 8000);
     }
 
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 const formData = new FormData(bookingForm);
-                const response = await fetch('https://formspree.io/f/xzdqjzdp', {
+                const response = await fetch('https://formspree.io/f/xykqwrpr', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json'
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
                 
                 if (response.ok) {
-                    modalMessage.innerHTML = 'Your consultation request has been securely submitted. Our concierge team will reach out shortly.';
+                    modalMessage.innerHTML = 'Your appointment request has been submitted successfully! We will contact you shortly to confirm your slot.';
                     modalOverlay.classList.add('active');
                     bookingForm.reset();
                 } else {

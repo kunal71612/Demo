@@ -52,7 +52,7 @@ init_db()
 def index():
     """
     Renders the public dental clinic website homepage, including the hero, services,
-    testimonials, doctor bio, contact info, and booking form.
+    feedback, doctor bio, contact info, and booking form.
     """
     return render_template('index.html')
 
@@ -103,7 +103,7 @@ def book_appointment():
 def admin_login():
     """
     Renders and handles the admin login page.
-    Credentials: username: admin / password: admin123
+    Default credentials should be changed by the clinic administrator after deployment.
     """
     # If already logged in, redirect directly to dashboard
     if session.get('logged_in'):
