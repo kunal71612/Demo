@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ treatment.title }} | SmileCraft Dental Clinic{% endblock %}
+
+{% block content %}
+
+<!-- TREATMENT HERO SECTION -->
+<section class="treatment-hero">
+    <div class="treatment-hero-content reveal">
+        <div class="treatment-hero-badge">
+            <i data-lucide="{{ treatment.icon }}"></i>
+            <span>Clinical Speciality</span>
+        </div>
+        <h1 class="treatment-hero-title">{{ treatment.title }}</h1>
+        <p class="treatment-hero-subtitle">{{ treatment.subtitle }}</p>
+    </div>
+</section>
+
+<!-- TREATMENT DETAIL CONTENT -->
+<div class="container">
+    <div class="treatment-detail-grid">
+        
+        <!-- MAIN CLINICAL INFO -->
+        <main class="treatment-detail-main reveal">
+            
+            <!-- Treatment Image -->
+            <div class="treatment-image-box">
+                <img src="{{ treatment.image }}" alt="{{ treatment.title }}">
+            </div>
+
+            <!-- Treatment Description -->
+            <section class="treatment-text-block">
+                <h2 class="treatment-section-title">Overview</h2>
+                <p>{{ treatment.description }}</p>
+            </section>
+
+            <!-- Treatment Benefits -->
+            <section class="treatment-benefits-box">
+                <h2 class="treatment-section-title" style="margin-bottom: 2rem;">Treatment Benefits</h2>
+                <ul class="benefits-list">
+                    {% for benefit in treatment.benefits %}
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        <span>{{ benefit }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <!-- Treatment Steps/Procedure -->
+            <section class="treatment-procedure">
+                <h2 class="treatment-section-title" style="margin-bottom: 2rem;">What to Expect (Procedure Steps)</h2>
+                <div class="procedure-steps">
+                    {% for step in treatment.procedure %}
+                    {% set step_parts = step.split(': ') %}
+                    <div class="procedure-step-item">
+                        <div class="step-number">0{{ loop.index }}</div>
+                        <div class="step-details">
+                            {% if step_parts|length > 1 %}
+                            <h4>{{ step_parts[0] }}</h4>
+                            <p>{{ step_parts[1] }}</p>
+                            {% else %}
+                            <p>{{ step }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SIDEBAR APPOINTMENT BOOKING -->
+        <aside class="treatment-sidebar reveal delay-1">
+            <div class="treatment-booking-card">
+                <h3>Book Treatment</h3>
+                <p>Request an immediate consultation slot for {{ treatment.title }}.</p>
+                
+                <form id="bookingForm" class="booking-form" action="{{ url_for('book_appointment') }}" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="treatment">Selected Treatment</label>
+                        <select id="treatment" name="treatment" class="form-control" required>
+                            <option value="{{ treatment.title }}" selected>{{ treatment.title }}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row" style="grid-template-columns: 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <input type="time" id="time" name="time" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Any details to share?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-submit btn-rounded" style="width: 100%; border: 1px solid var(--color-accent-gold);">Confirm Booking</button>
+                </form>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<!-- Success Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="success-modal">
+        <div class="success-icon-box">
+            <i data-lucide="check" style="width: 40px; height: 40px;"></i>
+        </div>
+        <h3>Appointment Confirmed</h3>
+        <p id="modalMessage">Your appointment request has been submitted successfully. Our team will reach out shortly to confirm.</p>
+        <button class="btn btn-primary btn-rounded" id="closeModalBtn" style="width: 100%;">Return to Site</button>
+    </div>
+</div>
+
+{% endblock %}

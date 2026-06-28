@@ -48,6 +48,134 @@ def init_db():
 # Ensure the database and tables are set up right away
 init_db()
 
+TREATMENTS = {
+    'teeth-cleaning': {
+        'title': 'Teeth Cleaning (Scaling)',
+        'subtitle': 'Ultrasonic scaling & polishing for pristine oral health',
+        'icon': 'scan',
+        'image': 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'Regular teeth cleaning, or dental scaling, is essential for maintaining healthy gums and teeth. Over time, plaque and tartar build up on your teeth, which can lead to gum disease and cavities if not removed. Our clinical experts use advanced ultrasonic scaling devices to gently and effectively clear plaque, followed by a polishing treatment that leaves your teeth smooth and clean.',
+        'benefits': [
+            'Removes stubborn plaque and tartar buildup',
+            'Prevents gum disease (gingivitis and periodontitis)',
+            'Brightens your smile and freshens breath instantly',
+            'Helps in early detection of potential dental issues'
+        ],
+        'procedure': [
+            'Physical Exam: The dental hygienist checks your teeth and gums for signs of irritation or issues.',
+            'Ultrasonic Scaling: Advanced sonic vibrations are used to remove plaque and tartar from tooth surfaces and below the gumline.',
+            'Polishing: A high-powered electric brush and gritty toothpaste are used to remove stains and smooth the enamel.',
+            'Flossing & Fluoride: Deep flossing followed by an optional protective fluoride treatment to strengthen your teeth.'
+        ]
+    },
+    'dental-implants': {
+        'title': 'Dental Implants',
+        'subtitle': 'Permanent, natural-looking tooth restoration solutions',
+        'icon': 'bolt',
+        'image': 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'Dental implants are the gold standard for replacing missing teeth. They are designed to replicate the natural root structure of a tooth, providing unmatched stability and longevity. A biocompatible titanium post is surgically placed into the jawbone, which fuses with the bone over time to support a custom-crafted crown that looks, feels, and functions just like a natural tooth.',
+        'benefits': [
+            'Restores full chewing capacity and clear speech',
+            'Prevents jawbone loss and maintains facial structure',
+            'Saves adjacent teeth from needing down-sizing or modification',
+            'Provides a permanent, lifetime solution with proper care'
+        ],
+        'procedure': [
+            'Initial Assessment: Comprehensive 3D scans and clinical exams to plan implant placement.',
+            'Implant Placement: Precise surgical insertion of the biocompatible titanium post into the jawbone.',
+            'Osseointegration: A healing period of 3-6 months for the bone to securely fuse with the implant.',
+            'Abutment & Crown: Attachment of the custom-made porcelain crown to restore your natural smile.'
+        ]
+    },
+    'root-canal': {
+        'title': 'Root Canal Treatment',
+        'subtitle': 'Painless endodontic therapy to save your natural teeth',
+        'icon': 'heart-pulse',
+        'image': 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'A root canal is a highly effective, virtually painless procedure designed to save a tooth that is severely decayed or infected. The treatment involves removing the damaged or infected pulp inside the tooth, cleaning and disinfecting the root canals, and then sealing them to prevent future infection. Saving your natural tooth preserves your bite alignment and chewing strength.',
+        'benefits': [
+            'Eliminates persistent, severe toothaches and sensitivity',
+            'Saves the natural tooth from extraction',
+            'Prevents the spread of infection to surrounding tissues and jawbone',
+            'Restores normal biting pressure and chewing sensation'
+        ],
+        'procedure': [
+            'Local Anesthesia: We ensure the treatment area is completely numb for a pain-free experience.',
+            'Pulp Removal: A tiny opening is made in the tooth to access and remove the infected pulp.',
+            'Cleaning & Shaping: The inner canals are thoroughly cleaned, disinfected, and shaped.',
+            'Sealing: The canals are filled with a biocompatible material (gutta-percha) and sealed, followed by a crown recommendation.'
+        ]
+    },
+    'teeth-whitening': {
+        'title': 'Teeth Whitening',
+        'subtitle': 'Safe, professional bleaching for a brilliant smile',
+        'icon': 'sun-medium',
+        'image': 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'Professional teeth whitening is one of the quickest and most impactful ways to transform your smile. Stains from coffee, tea, wine, smoking, or natural aging can dull your teeth over time. Our clinic offers safe, clinical-grade bleaching treatments that break down stains below the enamel surface, brightening your teeth by up to 8 shades in just a single office visit.',
+        'benefits': [
+            'Fast and dramatic results in under an hour',
+            'Safely formulated products that protect enamel and reduce sensitivity',
+            'Uniform whitening compared to over-the-counter kits',
+            'Boosts confidence and leaves a stunning first impression'
+        ],
+        'procedure': [
+            'Preparation: A protective gel or rubber shield is placed over your gums to keep them safe.',
+            'Whitening Gel Application: A high-concentration bleaching gel is applied to the front of your teeth.',
+            'Laser Activation: A specialized blue light or laser is used to activate the whitening gel.',
+            'Rinse & Evaluation: The gel is rinsed off, and shade improvements are measured and documented.'
+        ]
+    },
+    'crowns-bridges': {
+        'title': 'Crowns & Bridges',
+        'subtitle': 'High-quality dental restorations for broken or missing teeth',
+        'icon': 'crown',
+        'image': 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'Crowns and bridges are permanent restorative devices used to repair damaged or missing teeth. A dental crown acts as a protective cap that fits entirely over a weakened or broken tooth, restoring its strength, shape, and size. A dental bridge, on the other hand, is used to fill the space left by one or more missing teeth, anchored securely to the surrounding healthy teeth.',
+        'benefits': [
+            'Strengthens fractured, weak, or heavily filled teeth',
+            'Restores natural appearance, shape, and alignment',
+            'Bridges gaps to prevent remaining teeth from shifting',
+            'Extremely durable restorations lasting 10-15 years'
+        ],
+        'procedure': [
+            'Tooth Preparation: The tooth is reshaped to accommodate the thickness of the crown.',
+            'Impression: A digital scan or physical mold is taken to create a custom-fit restoration.',
+            'Temporary Crown: A temporary cap is fitted to protect the tooth while the final one is made.',
+            'Bonding: The custom-crafted porcelain crown or bridge is permanently cemented in place.'
+        ]
+    },
+    'surgical-extractions': {
+        'title': 'Surgical Extractions',
+        'subtitle': 'Safe and comfortable removal of impacted or damaged teeth',
+        'icon': 'syringe',
+        'image': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        'description': 'While we always aim to save your natural teeth, there are times when an extraction is the best option for your overall oral health. A surgical extraction is typically required for teeth that cannot be easily accessed, such as impacted wisdom teeth or teeth broken below the gumline. Our team ensures the procedure is carried out with extreme care, absolute sterile safety, and maximum comfort.',
+        'benefits': [
+            'Prevents overcrowding and shifting of healthy teeth',
+            'Relieves intense pain caused by impacted wisdom teeth',
+            'Eliminates severe infections that cannot be resolved with root canals',
+            'Ensures oral cavity health is protected and stabilized'
+        ],
+        'procedure': [
+            'X-Ray Assessment: Detailed imaging to map the tooth root shape and adjacent structures.',
+            'Anesthesia: Administration of local anesthesia (or sedation) for a comfortable procedure.',
+            'Gentle Removal: A small incision in the gum is made if needed to safely lift and remove the tooth.',
+            'Suturing & Recovery: The socket is cleaned, sterile gauze is placed, and self-dissolving sutures are applied.'
+        ]
+    }
+}
+
+@app.route('/treatment/<slug>')
+def treatment_detail(slug):
+    """
+    Renders the detailed treatment information page based on the dynamic slug.
+    If the treatment doesn't exist, redirects back to the index page.
+    """
+    treatment = TREATMENTS.get(slug)
+    if not treatment:
+        return redirect(url_for('index'))
+    return render_template('treatment_detail.html', treatment=treatment, slug=slug)
+
 @app.route('/')
 def index():
     """

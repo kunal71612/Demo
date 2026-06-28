@@ -20,6 +20,9 @@
 
     <!-- Custom CSS stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 30C20 15 35 10 50 25C65 10 80 15 80 30C80 55 70 65 65 85C63 90 55 90 50 85C45 90 37 90 35 85C30 65 20 55 20 30Z' fill='%23d1b075'/%3E%3Cpath d='M72 18L75 10L78 18L86 21L78 24L75 32L72 24L64 21L72 18Z' fill='%23d1b075'/%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -50,7 +53,13 @@
     <header class="main-header" id="mainHeader">
         <nav class="navbar container">
             <a href="{{ url_for('index') }}#home" class="logo">
-                <span class="logo-symbol">S</span>mile<span>Craft</span>
+                <span class="logo-symbol">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 22px; height: 22px; vertical-align: middle;">
+                        <path d="M20 30C20 15 35 10 50 25C65 10 80 15 80 30C80 55 70 65 65 85C63 90 55 90 50 85C45 90 37 90 35 85C30 65 20 55 20 30Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/>
+                        <path d="M72 18L75 10L78 18L86 21L78 24L75 32L72 24L64 21L72 18Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                Smile<span>Craft</span>
             </a>
 
             <!-- Desktop Menu Links -->
@@ -107,7 +116,13 @@
                 <!-- Column 1: Info and Brand -->
                 <div class="footer-col col-brand">
                     <a href="{{ url_for('index') }}#home" class="footer-logo">
-                        <span class="logo-symbol">S</span>mile<span>Craft</span>
+                        <span class="logo-symbol">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 22px; height: 22px; vertical-align: middle;">
+                                <path d="M20 30C20 15 35 10 50 25C65 10 80 15 80 30C80 55 70 65 65 85C63 90 55 90 50 85C45 90 37 90 35 85C30 65 20 55 20 30Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/>
+                                <path d="M72 18L75 10L78 18L86 21L78 24L75 32L72 24L64 21L72 18Z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Smile<span>Craft</span>
                     </a>
                     <p class="footer-desc">
                         SmileCraft Dental Clinic offers state-of-the-art dental care with a focus on precision, comfort, and patient satisfaction. Experience clinical excellence in a serene environment.

@@ -348,7 +348,7 @@ h1, h2, h3, h4 {
 .hero {
     position: relative;
     background: var(--bg-clinical-light);
-    padding: 6rem 0 10rem;
+    padding: 6rem 0 3rem;
     overflow: hidden;
 }
 
@@ -499,7 +499,7 @@ h1, h2, h3, h4 {
 
 /* Trust Banner Section */
 .trust-banner {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
     background-color: var(--bg-white);
     border-bottom: 1px solid var(--border-color);
 }
@@ -510,14 +510,13 @@ h1, h2, h3, h4 {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    opacity: 0.6;
-    filter: grayscale(100%);
+    opacity: 0.85;
     transition: var(--transition-premium);
 }
 
 .trust-flex:hover {
     opacity: 1;
-    filter: grayscale(0%);
+    transform: translateY(-2px);
 }
 
 .trust-item {
@@ -652,6 +651,31 @@ h1, h2, h3, h4 {
 
 .service-card:hover .service-link i {
     transform: translateX(5px);
+}
+
+.service-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.service-actions .read-more {
+    color: var(--color-primary);
+}
+
+.service-actions .consult-now {
+    color: var(--color-secondary);
+}
+
+.service-actions .read-more:hover {
+    color: var(--color-secondary);
+}
+
+.service-actions .consult-now:hover {
+    color: var(--color-accent);
 }
 
 /* About Section */
@@ -1172,6 +1196,16 @@ textarea.form-control {
     .appointment-form-wrapper { padding: 2rem; }
     
     .footer-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Treatment detail tablet */
+    .treatment-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .treatment-sidebar {
+        position: relative;
+        top: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1189,13 +1223,385 @@ textarea.form-control {
     .mobile-only-cta { display: block; width: 100%; margin-top: 1rem; }
     .mobile-only-cta .btn { width: 100%; }
     
-    .hero-title { font-size: 2.8rem; }
-    .glass-card { bottom: -20px; left: 10px; right: 10px; padding: 1rem; }
+    /* Hero mobile */
+    .hero { padding: 4rem 0 2rem; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
+    .hero-visual { height: 300px; }
+    .hero-content { padding-right: 0; }
+    .glass-card { bottom: -20px; left: 10px; right: 10px; padding: 1rem; border-radius: 16px; }
+    .glass-card-text h4 { font-size: 0.85rem; }
+    .glass-card-text p { font-size: 0.75rem; }
+    .card-icon-container { width: 40px; height: 40px; border-radius: 10px; }
+
+    /* Trust banner mobile */
     .trust-banner { display: none; }
     
+    /* Section titles mobile */
+    .section-title { font-size: 2rem; margin-bottom: 2.5rem; }
+    .section-subtitle { font-size: 0.7rem; letter-spacing: 0.15em; }
+
+    /* Services mobile */
+    .services { padding: 5rem 0; }
+    .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .service-card { border-radius: 20px; }
+    .service-image { height: 180px; }
+    .service-content { padding: 2rem 1.5rem 2.5rem; }
+    .service-icon-box { width: 50px; height: 50px; border-radius: 14px; margin-bottom: 1.5rem; }
+    .service-icon-box i { width: 24px; height: 24px; }
+    .service-title { font-size: 1.3rem; }
+    .service-desc { font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    /* About section mobile */
+    .about { padding: 5rem 0; }
+    .about-grid { gap: 3rem; }
+    .about-visual { border-radius: 20px; }
+    .about-img-main { border-radius: 20px; }
+    .experience-badge { padding: 1rem 1.25rem; }
+    .exp-years { font-size: 2rem; }
+    .about-content h2 { font-size: 2rem; }
+    .about-description { font-size: 0.95rem; }
+    .about-points { gap: 1.5rem; }
+    .about-point-item { gap: 1rem; }
+    .about-point-item i { width: 28px; height: 28px; flex-shrink: 0; }
+
+    /* Doctor section mobile */
+    .doctor { padding: 5rem 0; }
+    .doctor-grid { gap: 3rem; }
+    .doctor-content h2 { font-size: 2rem; }
+    .doctor-spec { font-size: 0.9rem; }
+    .doctor-img-wrapper { border-radius: 20px; }
+    .doctor-detail-item { font-size: 0.9rem; }
+
+    /* Feedback section mobile */
+    .feedback { padding: 5rem 0; }
+    .feedback-display { padding: 2rem 1.5rem; border-radius: 20px; }
+    .feedback-quote-icon { width: 32px; height: 32px; }
+    .t-stars { font-size: 1.2rem; }
+    .t-review { font-size: 1.1rem; line-height: 1.6; }
+    .t-author { font-size: 1rem; }
+    .t-tag { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
+    .t-controls { gap: 0.75rem; }
+    .t-btn { width: 44px; height: 44px; }
+
+    /* Appointment section mobile */
+    .appointment { padding: 5rem 0; }
+    .appointment-grid { gap: 3rem; }
+    .appointment-info h2 { font-size: 2rem; }
+    .appointment-desc { font-size: 0.95rem; }
+    .appointment-form-wrapper { padding: 2rem 1.5rem; border-radius: 20px; }
+    .appointment-form-wrapper h3 { font-size: 1.3rem; }
     .form-row { grid-template-columns: 1fr; }
-    
+    .form-group { margin-bottom: 1rem; }
+    .form-control { padding: 0.85rem 1rem; font-size: 0.9rem; border-radius: 12px; }
+    .btn-submit { padding: 1rem; font-size: 0.9rem; }
+
+    /* Contact section mobile */
+    .contact { padding: 5rem 0 !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .map-wrapper { border-radius: 20px !important; }
+    .map-wrapper iframe { height: 300px !important; }
+
+    /* Footer mobile */
+    .footer-upper { padding: 4rem 0 3rem; }
     .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-logo { font-size: 1.5rem; }
+    .footer-desc { font-size: 0.9rem; }
+    .footer-heading { font-size: 1rem; margin-bottom: 1rem; }
+    .footer-links li { margin-bottom: 0.6rem; }
     .footer-lower-flex { flex-direction: column; text-align: center; gap: 1.5rem; }
     .footer-terms a { margin: 0 0.5rem; }
+
+    /* Floating elements mobile */
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 15px; }
+    .back-to-top { width: 44px; height: 44px; bottom: 80px; right: 15px; }
+
+    /* Modal mobile */
+    .success-modal { margin: 1rem; padding: 2.5rem 2rem; border-radius: 20px; }
+    .success-icon-box { width: 60px; height: 60px; }
+
+    /* Treatment detail page mobile */
+    .treatment-hero { padding: 7rem 0 3.5rem; }
+    .treatment-hero-title { font-size: 2.2rem; }
+    .treatment-hero-subtitle { font-size: 1rem; }
+    .treatment-hero-badge { font-size: 0.65rem; padding: 0.4rem 1rem; }
+
+    .treatment-detail-grid { padding: 3rem 0; gap: 3rem; }
+    .treatment-detail-main { gap: 2.5rem; }
+    .treatment-image-box { height: 250px; border-radius: 20px; }
+    .treatment-section-title { font-size: 1.5rem; margin-bottom: 1rem; }
+    .treatment-text-block p { font-size: 0.95rem; line-height: 1.7; }
+    .treatment-benefits-box { padding: 2rem 1.5rem; border-radius: 20px; }
+    .benefits-list { grid-template-columns: 1fr; gap: 1.25rem; }
+    .benefits-list li { font-size: 0.9rem; }
+    .procedure-step-item { padding: 1.25rem 1.5rem; border-radius: 16px; gap: 1rem; }
+    .procedure-step-item:hover { transform: none; }
+    .step-number { font-size: 1.2rem; }
+    .step-details h4 { font-size: 1rem; }
+    .step-details p { font-size: 0.85rem; }
+    .treatment-booking-card { border-radius: 24px; padding: 2.5rem 2rem; }
+    .treatment-booking-card h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    html { font-size: 14px; }
+
+    .container { padding: 0 1.25rem; }
+    .logo { font-size: 1.5rem; gap: 0.35rem; }
+    .logo-symbol { width: 34px; height: 34px; border-radius: 8px; }
+    .logo-symbol svg { width: 18px !important; height: 18px !important; }
+
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 0.9rem; }
+    .hero-badge { padding: 0.4rem 1rem; font-size: 0.65rem; margin-bottom: 1.5rem; }
+    .hero-visual { height: 240px; }
+    .hero-image-wrapper { border-radius: 20px; }
+    .btn-primary { padding: 0.9rem 2rem; font-size: 0.8rem; }
+
+    .section-title { font-size: 1.7rem; margin-bottom: 2rem; }
+
+    .services-grid { gap: 1.5rem; }
+    .service-content { padding: 1.5rem 1.25rem 2rem; }
+    .service-title { font-size: 1.15rem; }
+    .service-desc { font-size: 0.85rem; }
+    .service-link { font-size: 0.75rem; }
+
+    .t-review { font-size: 0.95rem; }
+    .feedback-display { padding: 1.5rem 1.25rem; }
+
+    .appointment-form-wrapper { padding: 1.5rem 1.25rem; }
+
+    .treatment-hero { padding: 6rem 0 2.5rem; }
+    .treatment-hero-title { font-size: 1.8rem; }
+    .treatment-hero-subtitle { font-size: 0.9rem; }
+    .treatment-detail-grid { padding: 2rem 0; gap: 2rem; }
+    .treatment-image-box { height: 200px; border-radius: 16px; }
+    .treatment-section-title { font-size: 1.3rem; }
+    .treatment-benefits-box { padding: 1.5rem 1.25rem; border-radius: 16px; }
+    .procedure-step-item { padding: 1rem 1.25rem; border-radius: 14px; }
+    .treatment-booking-card { padding: 2rem 1.5rem; border-radius: 20px; }
+    .treatment-booking-card h3 { font-size: 1.3rem; }
+}
+
+.treatment-hero {
+    position: relative;
+    padding: 10rem 0 6rem;
+    background-color: var(--color-primary);
+    color: var(--bg-white);
+    overflow: hidden;
+    text-align: center;
+}
+
+.treatment-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.treatment-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.treatment-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent-gold);
+    border: 1px solid rgba(209, 176, 117, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+.treatment-hero-badge i {
+    width: 14px;
+    height: 14px;
+}
+
+.treatment-hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    color: var(--bg-white);
+}
+
+.treatment-hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.treatment-detail-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 4rem;
+    padding: 6rem 0;
+}
+
+.treatment-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.treatment-image-box {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    height: 400px;
+}
+
+.treatment-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.treatment-section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.treatment-text-block p {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.treatment-benefits-box {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-subtle);
+}
+
+.benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.benefits-list li i {
+    color: var(--color-success);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.procedure-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.procedure-step-item {
+    display: flex;
+    gap: 1.5rem;
+    background-color: var(--bg-soft-ice);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    transition: var(--transition-premium);
+}
+
+.procedure-step-item:hover {
+    transform: translateX(5px);
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+    font-family: var(--font-body);
+}
+
+.step-details h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.step-details p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.treatment-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+.treatment-booking-card {
+    background-color: var(--color-primary);
+    color: var(--bg-white);
+    border-radius: 30px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-premium);
+}
+
+.treatment-booking-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--bg-white);
+    margin-bottom: 0.5rem;
+}
+
+.treatment-booking-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.treatment-booking-card label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+.treatment-booking-card .form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--bg-white);
+}
+
+.treatment-booking-card .form-control:focus {
+    border-color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.treatment-booking-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.treatment-booking-card select.form-control option {
+    background-color: var(--color-primary);
+    color: var(--bg-white);
 }
